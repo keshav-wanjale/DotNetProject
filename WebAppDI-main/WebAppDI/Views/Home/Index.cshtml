@@ -1,0 +1,38 @@
+﻿@model CasCap.ViewModels.IndexViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Dependency Injection in ASP.NET MVC</h2>
+        <p>
+            @if (Model.SomeIntValues != null && Model.SomeIntValues.Any())
+            {
+                <div>SomeIntValues;</div>
+                <ul>
+                    @foreach (var value in Model.SomeIntValues)
+                    {
+                        <li>
+                            @value
+                        </li>
+                    }
+                </ul>
+            }
+        </p>
+        <p>
+            @if (Model.SomeStringValues != null && Model.SomeStringValues.Any())
+            {
+                <div>SomeStringValues;</div>
+                <ul>
+                    @foreach (var value in Model.SomeStringValues)
+                    {
+                        <li>
+                            @value
+                        </li>
+                    }
+                </ul>
+            }
+        </p>
+    </div>
+</div>

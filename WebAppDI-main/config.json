@@ -1,0 +1,18 @@
+{
+  "App_Start": {
+    "fileCount": 4,
+    "filePaths": [
+      "WebAppDI/App_Start/BundleConfig.cs",
+      "WebAppDI/App_Start/FilterConfig.cs",
+      "WebAppDI/App_Start/RouteConfig.cs",
+      "WebAppDI/App_Start/WebApiConfig.cs"
+    ]
+  },
+  "Controllers": {
+    "fileCount": 2,
+    "filePaths": [
+      "WebAppDI/Controllers/HomeController.cs",
+      "WebAppDI/Controllers/ValuesController.cs"
+    ]
+  }
+}

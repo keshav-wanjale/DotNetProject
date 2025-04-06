@@ -1,0 +1,4 @@
+#global variables
+variables:
+  vmImageName: windows-latest
+  buildPlatform: Any CPU

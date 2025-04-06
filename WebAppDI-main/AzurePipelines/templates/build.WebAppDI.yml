@@ -1,0 +1,45 @@
+jobs:
+- job: WebAppDI
+  strategy:
+    matrix:
+      Debug:
+        buildConfiguration: Debug
+      Release:
+        buildConfiguration: Release
+  pool:
+    vmImage: $(vmImageName)
+  variables:
+  - template: variables.WebAppDI.yml
+  steps:
+
+  - task: NuGetToolInstaller@0
+    
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: $(projectName).sln
+  
+  - task: VSBuild@1
+    inputs:
+      solution: $(projectName).sln
+      msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(Build.ArtifactStagingDirectory)/$(projectName).zip"'
+      platform: $(buildPlatform)
+      configuration: $(buildConfiguration)
+  
+  - task: PublishSymbols@2
+    displayName: 'Publish symbols path'
+    inputs:
+      SearchPattern: '**\bin\**\*.pdb'
+      PublishSymbols: false
+    condition: and(succeeded(), eq(variables['buildConfiguration'], 'Debug'))
+
+  - task: VSTest@2
+    inputs:
+      platform: $(buildPlatform)
+      configuration: $(buildConfiguration)
+    condition: and(succeeded(), eq(variables['buildConfiguration'], 'Debug'))
+
+  - task: PublishPipelineArtifact@0
+    displayName: publish pipeline artifact
+    inputs:
+      artifactName: $(projectName)/$(buildConfiguration)
+      targetPath: $(Build.ArtifactStagingDirectory)
