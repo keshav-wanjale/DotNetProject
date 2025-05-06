@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Version>1.0.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Company></Company>
+    <Product>WebApiExample.WebApp</Product>
+    <Description></Description>
+    <Copyright>Copyright © 2022</Copyright>
+  </PropertyGroup>
+
+  <!-- Reference ASP.NET Core shared framework -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <!-- .NET 8.0 NuGet packages -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
+    <!-- Added built-in DI support -->
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <!-- Include code files and Razor views -->
+  <ItemGroup>
+    <Compile Include="**\\*.cs" />
+    <Content Include="**\\*.cshtml" />
+  </ItemGroup>
+
+  <!-- Exclude legacy files from build -->
+  <ItemGroup>
+    <Compile Remove="Global.asax.cs" />
+    <None Remove="Global.asax" />
+    <None Remove="Web.config" />
+    <None Remove="Web.Debug.config" />
+    <None Remove="Web.Release.config" />
+  </ItemGroup>
+
+  <!-- Project references -->
+  <ItemGroup>
+    <ProjectReference Include="..\\WebApiExample.Common\\WebApiExample.Common.csproj" />
+    <ProjectReference Include="..\\WebApiExample.DataStore\\WebApiExample.DataStore.csproj" />
+  </ItemGroup>
+
+</Project>
