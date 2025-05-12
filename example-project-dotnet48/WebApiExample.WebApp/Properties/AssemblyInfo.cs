@@ -1,0 +1,1 @@
+// This file is no longer used for assembly attributes. All assembly attributes have been moved to the project file.
