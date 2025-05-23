@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Error</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <hgroup>
+            <h1 th:text="${errorTitle}">Error.</h1>
+            <h2 th:text="${errorMessage}">An error occurred while processing your request.</h2>
+        </hgroup>
+    </div>
+</body>
+</html>

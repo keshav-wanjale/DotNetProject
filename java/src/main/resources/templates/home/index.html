@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap-theme.css}" rel="stylesheet" />
+    <link th:href="@{/css/Site.css}" rel="stylesheet" />
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Spring Boot</h1>
+        <p class="lead">Spring Boot is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
+        <p><a th:href="https://spring.io/projects/spring-boot" class="btn btn-primary btn-lg">Learn more »</a></p>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>Spring Web MVC is a framework that makes it easy to build HTTP services that reach
+               a broad range of clients, including browsers and mobile devices.</p>
+            <p><a th:href="https://spring.io/guides" class="btn btn-default">Learn more »</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>Spring Boot starters and Spring Initializr make it easy to add, remove, and update libraries in your project.</p>
+            <p><a th:href="https://start.spring.io/" class="btn btn-default">Learn more »</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can deploy your Spring Boot application to a wide range of hosting providers.</p>
+            <p><a th:href="https://spring.io/projects/spring-boot" class="btn btn-default">Learn more »</a></p>
+        </div>
+    </div>
+</body>
+</html>
